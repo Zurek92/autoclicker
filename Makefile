@@ -1,18 +1,18 @@
 # virtualenv and run application
 venv:
 	virtualenv -p /usr/bin/python3 venv/ && \
-    make venv_install_reqs && \
-    make venv_install_reqs_dev
+	make venv_install_reqs && \
+	make venv_install_reqs_dev
 
 venv_bare:
-    virtualenv -p /usr/bin/python3 venv_bare/
+	virtualenv -p /usr/bin/python3 venv_bare/
 
 venv_install_reqs:
 	. venv/bin/activate && \
-    sudo apt-get install scrot && \
-    sudo apt-get install python3-tk && \
-    sudo apt-get install python3-dev && \
-    pip install -r requirements.txt
+	sudo apt-get install scrot && \
+	sudo apt-get install python3-tk && \
+	sudo apt-get install python3-dev && \
+	pip install -r requirements.txt
 
 venv_install_reqs_dev:
 	. venv/bin/activate && pip install -r requirements_dev.txt
