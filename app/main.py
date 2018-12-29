@@ -17,3 +17,13 @@ def mouse_click(posx, posy, repeats, time_break, time_different):
     for _ in range(repeats):
         pyautogui.click(posx, posy)
         time.sleep(time_break + random.uniform(-time_different, time_different))
+
+
+def mouse_scroll(scrolls):
+    """Mouse scroll wheeling up or down.
+
+    :param scrolls: number of scroll click
+    """
+    for _ in range(abs(scrolls)):
+        pyautogui.scroll(1 if scrolls > 0 else -1)
+        time.sleep(0.01)
