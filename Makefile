@@ -1,4 +1,9 @@
 # virtualenv and run application
+install_dependencies:
+	sudo apt-get install scrot && \
+	sudo apt-get install python3-tk && \
+	sudo apt-get install python3-dev
+
 venv:
 	virtualenv -p /usr/bin/python3 venv/ && \
 	make venv_install_reqs && \
@@ -9,9 +14,6 @@ venv_bare:
 
 venv_install_reqs:
 	. venv/bin/activate && \
-	sudo apt-get install scrot && \
-	sudo apt-get install python3-tk && \
-	sudo apt-get install python3-dev && \
 	pip install -r requirements.txt
 
 venv_install_reqs_dev:
@@ -27,5 +29,5 @@ black_all:
 test-unittests:
 	. venv/bin/activate && \
 	export PYTHONPATH=$PYTHONPATH:app/ && \
-	python -m pytest app/ unittests/ -v -ra --cov --cov-report term-missing:skip-covered --pylama && \
+	python -m pytest app/ unittests/ -v -ra -s --cov --cov-report term-missing:skip-covered --pylama && \
 	rm -r ".coverage" ".pytest_cache" "app/__pycache__" "unittests/__pycache__"
