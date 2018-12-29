@@ -4,11 +4,11 @@ from unittest.mock import patch
 
 import pytest
 
-from main import mouse_click
-from main import mouse_scroll
+from funcs import mouse_click
+from funcs import mouse_scroll
 
 
-@patch('main.pyautogui.click')
+@patch('funcs.pyautogui.click')
 @pytest.mark.parametrize(
     'posx, posy, repeats, time_break, time_different', ((500, 500, 5, 1, 0.5), (500, 500, 5, 1, 0))
 )
@@ -23,7 +23,7 @@ def test_mouse_click(mocked_click, posx, posy, repeats, time_break, time_differe
     assert round(min_possible_time, 1) <= round(time_after - time_before, 1) <= round(max_possible_time, 1)
 
 
-@patch('main.pyautogui.scroll')
+@patch('funcs.pyautogui.scroll')
 @pytest.mark.parametrize('scrolls, direction', ((5, 1), (-5, -1)))
 def test_mouse_scroll(mocked_scroll, scrolls, direction):
     mouse_scroll(scrolls)
