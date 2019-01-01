@@ -5,3 +5,6 @@ __pycache__
 .pytest_cache
 *.swp
 .coverage
+*.egg-info/
+build/
+dist/

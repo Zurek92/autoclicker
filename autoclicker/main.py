@@ -2,9 +2,9 @@
 import click
 import pyautogui
 
-from funcs import mouse_click
-from funcs import mouse_scroll
-from validation import positive_number
+from autoclicker.funcs import mouse_click
+from autoclicker.funcs import mouse_scroll
+from autoclicker.validation import positive_number
 
 
 @click.group()
@@ -18,7 +18,6 @@ def autoclicker():
 @click.option('-t', '--time_break', required=True, type=float, callback=positive_number)
 @click.option('-d', '--time_different', default=0.2, callback=positive_number)
 def clicker(screen_location, repeats, time_break, time_different):
-    print(screen_location)
     posx, posy = screen_location if screen_location else pyautogui.position()
     mouse_click(posx, posy, repeats, time_break, time_different)
 

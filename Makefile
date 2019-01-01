@@ -21,13 +21,13 @@ venv_install_reqs_dev:
 
 # tests and maintaining code
 bandit:
-	. venv/bin/activate && bandit -r app/*.py
+	. venv/bin/activate && bandit -r autoclicker/*.py
 
 black_all:
-	. venv/bin/activate && black -l 119 -S app/ unittests/
+	. venv/bin/activate && black -l 119 -S autoclicker/ unittests/
 
 test-unittests:
 	. venv/bin/activate && \
-	export PYTHONPATH=$PYTHONPATH:app/ && \
-	python -m pytest app/ unittests/ -v -ra -s --cov --cov-report term-missing --pylama && \
-	rm -r ".coverage" ".pytest_cache" "app/__pycache__" "unittests/__pycache__"
+	export PYTHONPATH=$PYTHONPATH:autoclicker/ && \
+	python -m pytest autoclicker/ unittests/ -v -ra -s --cov --cov-report term-missing --pylama && \
+	rm -r ".coverage" ".pytest_cache" "autoclicker/__pycache__" "unittests/__pycache__"
