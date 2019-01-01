@@ -3,8 +3,7 @@ import click
 import pyautogui
 
 from funcs import mouse_click
-
-# from funcs import mouse_scroll
+from funcs import mouse_scroll
 from validation import positive_number
 
 
@@ -25,8 +24,9 @@ def clicker(screen_location, repeats, time_break, time_different):
 
 
 @autoclicker.command()
-def scroll():
-    pass
+@click.option('-s', '--scrolls', required=True, type=int, callback=positive_number)
+def scroll(scrolls):
+    mouse_scroll(scrolls)
 
 
 if __name__ == '__main__':

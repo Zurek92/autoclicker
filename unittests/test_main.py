@@ -47,6 +47,17 @@ def test_autoclicker_click_failed(mocked_click, params_invoke):
     assert result.exit_code in [1, 2]
 
 
-def test_autoclicker_scroll():
-    result = runner.invoke(autoclicker, ['scroll'])
+@patch('funcs.pyautogui.scroll')
+@pytest.mark.parametrize('scrolls', (5, 10, 15))
+def test_autoclicker_scroll(mocked_scroll, scrolls):
+    result = runner.invoke(autoclicker, ['scroll', '-s', scrolls])
+    assert mocked_scroll.call_count == scrolls
     assert result.exit_code == 0
+
+
+@patch('main.mouse_scroll')
+@pytest.mark.parametrize('scrolls', (-5, 'aa'))
+def test_autoclicker_scroll_failed(mocked_scroll, scrolls):
+    result = runner.invoke(autoclicker, ['scroll', '-s', scrolls])
+    assert mocked_scroll.call_count == 0
+    assert result.exit_code in [1, 2]
