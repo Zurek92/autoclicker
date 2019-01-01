@@ -10,7 +10,7 @@ from funcs import mouse_scroll
 
 @patch('funcs.pyautogui.click')
 @pytest.mark.parametrize(
-    'posx, posy, repeats, time_break, time_different', ((500, 500, 5, 1, 0.5), (500, 500, 5, 1, 0))
+    'posx, posy, repeats, time_break, time_different', ((500, 500, 3, 1, 0.5), (500, 500, 3, 1, 0))
 )
 def test_mouse_click(mocked_click, posx, posy, repeats, time_break, time_different):
     time_before = time.time()
