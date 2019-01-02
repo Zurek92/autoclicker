@@ -3,3 +3,4 @@ black
 pylama
 pytest
 pytest-cov
+setuptools
