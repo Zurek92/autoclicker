@@ -1,4 +1,8 @@
 # virtualenv and run application
+create_whl:
+	. venv/bin/activate && \
+	python3 setup.py bdist_wheel
+
 install_dependencies:
 	sudo apt-get install scrot && \
 	sudo apt-get install python3-tk && \
