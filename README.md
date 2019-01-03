@@ -1,7 +1,12 @@
 # Autoclicker
 A simple project to auto control mouse.
 
-#### Prepare and install whl file
+#### Install
+``pip install autoclicker``
+
+you might need some pyautogui dependencies different from the system: https://pyautogui.readthedocs.io/en/latest/install.html#installation
+
+#### Prepare and install whl file (developer mode)
 1. ``make venv`` creates virtualenv which allow use autoclicker in developer mode.
 2. ``make install_dependencies`` to install required dependencies in system linux
 3. ``make create_whl`` creates whl file in ``dist/``
@@ -14,7 +19,7 @@ A simple project to auto control mouse.
 Options:
 * -s (--scrolls) integer, required parameter which set how many times click middle button and in which direction, e.g.: ``-s 10``, ``-s -10``
 
-``autoclicker click`` uses left mouse button
+``autoclicker clicker`` uses left mouse button
 
 Options:
 * -s (--screen_location) - by default if this option is not set location is taken from current mouse position e.g.: ``-s 500 450``
